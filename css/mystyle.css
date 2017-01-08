@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+.mainpage {
+    background-color:#ddd;
+    width:100%;
+    height:100%;
+    margin: 0 0 0 auto;
+    text-align:center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.chatbox {
+    position:fixed;
+    bottom:0;
+    right:0;
+    padding-right:10px;
+}
+.chatheader {
+    width:350px;
+    margin-right:10px;
+    padding:10px 0px 10px 20px;
+    background: linear-gradient(to bottom, #f48642 0%, #ff9a5b 90%);
+    color:white;
+    text-align: left;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.chatbody {
+    width:350px;
+    height:503px;
+    background-color: #ededed;
+}
+
+.message-box {
+    margin:3px;
+    margin-top: -3px;
+    width:344px;
+    height:460px;
+    background-color: white;
+    border-radius: 4px;
+    display: block;
+    padding: 5px;
+    overflow-y:scroll;
+}
+
+#single-message-box{
+    width:335px;
+    overflow: auto;
+    margin-bottom: 2px;
+}
+
+.single-message{
+    background-color: #eee; 
+    max-width:180px;
+    float: right;
+    padding: 5px 15px 5px 15px;
+    border-radius: 16px;
+    text-align: right;
+    overflow-wrap: break-word;
+}
+
+.chatbody input[type="text"] {
+    width:309px;
+    padding:5px 10px 5px 10px;
+    border:0px;
+    border-radius: 4px;
+    background-color: #fafafa;
+    display: inline-block;
+}
+
+.chatbody label {
+    border:0px;
+    padding: 5px 8px 5px 8px;
+    border-radius: 4px;
+    background-color: #fafafa;
+    display: inline-block;
+    color: #d81a63;
+    outline: none;
+}
+
+.chatbody label {
+    border:0px;
+    padding: 5px 8px 5px 8px;
+    border-radius: 4px;
+    background-color: #eee;
+    display: inline-block;
+    color: #d81a63;
+}
+
+.chatbody input[type='file'] {
+  color: transparent;
+  display: none;
+}
+
+.button, .button:focus, .button:hover {
+    color: white;
+}
+
+
+/*
+* {
+    background: #000 !important;
+    color: #0f0 !important;
+    outline: solid #f00 1px !important;
+}
+*/

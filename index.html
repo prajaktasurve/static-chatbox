@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/mystyle.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type = "text/javascript">
+			function stopRKey(evt) { 
+				var evt = (evt) ? evt : ((event) ? event : null); 
+				var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
+				if ((evt.keyCode == 13) && (node.type=="text"))  {
+					var txtMssg = document.getElementById("chatMssg");
+					var text = txtMssg.value;
+					var old = $(".message-box").html();
+					if (text) {
+						$(".message-box").html(old + '<div id="single-message-box"><span class="single-message">' + text + '</span>&nbsp;</div>');
+					}  
+					var elem = document.getElementById('message-box');
+					elem.scrollTop = elem.scrollHeight;
+
+					document.getElementById("chatMssg").value = ""; 	
+				} 
+			} 
+			document.onkeypress = stopRKey; 
+
+		  	function sendImg(input){
+		  		var file    = document.querySelector('input[type=file]').files[0];
+
+		  		if (file) {
+		  			var old = $(".message-box").html();
+					$(".message-box").html(old + '<div id="single-message-box"><img src="" style="max-width:180px;border-radius:15px;float:right;">&nbsp;</div>');
+		  		}
+		  		
+				var previews = document.querySelectorAll('img');
+				var preview = previews[previews.length-1];
+				
+				var reader  = new FileReader();
+			
+				reader.addEventListener("load", function () {
+				    preview.src = reader.result;
+				}, false);
+
+				if (file) {
+				    reader.readAsDataURL(file);
+				}
+				document.getElementById("images").value = "";
+				var elem = document.getElementById('message-box');
+	  			elem.scrollTop = elem.scrollHeight;
+		 	}
+		</script>
+
+	</head>
+	<body>
+		<div class="mainpage">
+			<div class="chatbox">
+				<div class="chatheader">Chatbox <button class="btn fa fa-bars toggle-button button" data-toggle="collapse" data-target=".chatbody" style="margin-left:220px;background-color:#ffb587;outline:none;"></button>
+				</div>
+				<div class="chatbody collapse in">
+					<div style="height:6px;"></div>
+					<div class="message-box" id="message-box"></div>
+					<form>
+						<input id="chatMssg" placeholder="press enter!" type="text" >
+						<label for="images" class="fa fa-camera"></label>
+						<input value="img" id="images" type="file" onchange="sendImg(this);" required>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+
+	</body>
+</html>
